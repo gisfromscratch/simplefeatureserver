@@ -1,3 +1,3 @@
 # simplefeatureserver
-GIS Feature Server for simple features using GDAL/OGR
+GIS Feature Server for simple features using GDAL/OGR.
 The features can be accessed by using HTTP REST following the Geoservices for REST specification.
