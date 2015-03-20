@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="GIS.Service.Feature.Service1" CodeBehind="Service1.svc.cs" %>

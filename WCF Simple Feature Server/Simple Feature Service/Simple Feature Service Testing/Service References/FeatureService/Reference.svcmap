@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e43ac24c-dddc-464e-bb55-ab88c127aca9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/FeatureServer/FeatureService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FeatureService.xsd" MetadataType="Schema" ID="1e45f000-1f6b-44f7-b8ac-df01d87f2880" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FeatureService1.xsd" MetadataType="Schema" ID="33800741-e5e7-4796-9d1e-d2de3b3ac4ef" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FeatureService.wsdl" MetadataType="Wsdl" ID="1c4d5719-6e6a-4991-8c26-6cfa4099f2df" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?wsdl" />
+    <MetadataFile FileName="FeatureService2.xsd" MetadataType="Schema" ID="3cc28dec-3a02-4326-ad24-8b02e4b9f327" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FeatureService.disco" MetadataType="Disco" ID="39254112-f068-4b2c-a669-0cea683686ea" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

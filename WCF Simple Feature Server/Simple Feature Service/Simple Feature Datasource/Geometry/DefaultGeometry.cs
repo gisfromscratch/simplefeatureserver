@@ -21,17 +21,17 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIS.Datasource.Feature.Geometry
+namespace GIS.Datasources.Geometry
 {
     /// <summary>
     /// Represents a geometry having a spatial reference (<see cref="SpatialReference"/>).
     /// </summary>
     [DataContract]
     [KnownType(typeof(Point))]
-    public class AbstractGeometry
+    public abstract class DefaultGeometry
     {
         /// <summary>
-        /// The spatial reference of the point.
+        /// The spatial reference of this geometry.
         /// The spatial reference can be <c>null</c>.
         /// </summary>
         [DataMember(Name = @"spatialReference")]

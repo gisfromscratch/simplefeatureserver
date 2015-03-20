@@ -20,7 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GIS.Datasource.Feature.Convert
+namespace GIS.Datasources.Convert
 {
     /// <summary>
     /// Converts the different geometry representations.
