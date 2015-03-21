@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
@@ -30,6 +31,12 @@ namespace GIS.Services
     /// </summary>
     public class FolderService : IFolderService
     {
+        public string GetDescription()
+        {
+            var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
+            return File.ReadAllText(xsltFilepath);
+        }
+
         public string GetDescription(OutputFormat format)
         {
             var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");

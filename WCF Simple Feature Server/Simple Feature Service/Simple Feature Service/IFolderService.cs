@@ -33,6 +33,19 @@ namespace GIS.Services
         /// <summary>
         /// The description of this and all child services.
         /// </summary>
+        /// <returns>The description using HTML format.</returns>
+        [OperationContract(Name = @"Get")]
+        /*[WebInvoke(Method = "GET", 
+            UriTemplate = "/", 
+            ResponseFormat = WebMessageFormat.Xml, 
+            RequestFormat = WebMessageFormat.Xml, 
+            BodyStyle = WebMessageBodyStyle.Bare)]*/
+        [WebGet]
+        string GetDescription();
+
+        /// <summary>
+        /// The description of this and all child services.
+        /// </summary>
         /// <param name="format">The output format.</param>
         /// <returns>The description using the specified output format.</returns>
         [OperationContract]
