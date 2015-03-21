@@ -4,7 +4,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GIS.Datasource.Feature.Data" />
+      <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data" />
+      <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Geometry" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IFeatureService_QueryLayers_InputMessage">
@@ -13,16 +15,35 @@
   <wsdl:message name="IFeatureService_QueryLayers_OutputMessage">
     <wsdl:part name="parameters" element="tns:QueryLayersResponse" />
   </wsdl:message>
+  <wsdl:message name="IFeatureService_QueryFeatures_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFeatures" />
+  </wsdl:message>
+  <wsdl:message name="IFeatureService_QueryFeatures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryFeaturesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFeatureService">
     <wsdl:operation name="QueryLayers">
       <wsdl:input wsaw:Action="http://tempuri.org/IFeatureService/QueryLayers" message="tns:IFeatureService_QueryLayers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFeatureService/QueryLayersResponse" message="tns:IFeatureService_QueryLayers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryFeatures">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFeatureService/QueryFeatures" message="tns:IFeatureService_QueryFeatures_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFeatureService/QueryFeaturesResponse" message="tns:IFeatureService_QueryFeatures_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFeatureService" type="tns:IFeatureService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="QueryLayers">
       <soap:operation soapAction="http://tempuri.org/IFeatureService/QueryLayers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryFeatures">
+      <soap:operation soapAction="http://tempuri.org/IFeatureService/QueryFeatures" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

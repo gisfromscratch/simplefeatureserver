@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GIS.Datasource.Feature.Data" />
+  <xs:import schemaLocation="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data" />
   <xs:element name="QueryLayers">
     <xs:complexType>
       <xs:sequence />
@@ -9,7 +9,21 @@
   <xs:element name="QueryLayersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GIS.Datasource.Feature.Data" minOccurs="0" name="QueryLayersResult" nillable="true" type="q1:ArrayOfFeatureLayer" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data" minOccurs="0" name="QueryLayersResult" nillable="true" type="q1:ArrayOfFeatureLayer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFeatures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data" minOccurs="0" name="featureLayer" nillable="true" type="q2:FeatureLayer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryFeaturesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data" minOccurs="0" name="QueryFeaturesResult" nillable="true" type="q3:ArrayOfFeature" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

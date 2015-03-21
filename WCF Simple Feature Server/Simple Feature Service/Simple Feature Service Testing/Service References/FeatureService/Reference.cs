@@ -8,19 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GIS.Services.Feature.Testing.FeatureService {
+namespace GIS.Services.Testing.FeatureService {
     using System.Runtime.Serialization;
     using System;
     
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="FeatureLayer", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasource.Feature.Data")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FeatureLayer", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data")]
     [System.SerializableAttribute()]
     public partial class FeatureLayer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string connectionStringField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int idField;
@@ -35,6 +38,19 @@ namespace GIS.Services.Feature.Testing.FeatureService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string connectionString {
+            get {
+                return this.connectionStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.connectionStringField, value) != true)) {
+                    this.connectionStringField = value;
+                    this.RaisePropertyChanged("connectionString");
+                }
             }
         }
         
@@ -74,24 +90,221 @@ namespace GIS.Services.Feature.Testing.FeatureService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Feature", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Data")]
+    [System.SerializableAttribute()]
+    public partial class Feature : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, object> attributesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private GIS.Services.Testing.FeatureService.DefaultGeometry geometryField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.Dictionary<string, object> attributes {
+            get {
+                return this.attributesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.attributesField, value) != true)) {
+                    this.attributesField = value;
+                    this.RaisePropertyChanged("attributes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public GIS.Services.Testing.FeatureService.DefaultGeometry geometry {
+            get {
+                return this.geometryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.geometryField, value) != true)) {
+                    this.geometryField = value;
+                    this.RaisePropertyChanged("geometry");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DefaultGeometry", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Geometry")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(GIS.Services.Testing.FeatureService.Point))]
+    public partial class DefaultGeometry : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private GIS.Services.Testing.FeatureService.SpatialReference spatialReferenceField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public GIS.Services.Testing.FeatureService.SpatialReference spatialReference {
+            get {
+                return this.spatialReferenceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.spatialReferenceField, value) != true)) {
+                    this.spatialReferenceField = value;
+                    this.RaisePropertyChanged("spatialReference");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SpatialReference", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Geometry")]
+    [System.SerializableAttribute()]
+    public partial class SpatialReference : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int wkidField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int wkid {
+            get {
+                return this.wkidField;
+            }
+            set {
+                if ((this.wkidField.Equals(value) != true)) {
+                    this.wkidField = value;
+                    this.RaisePropertyChanged("wkid");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Point", Namespace="http://schemas.datacontract.org/2004/07/GIS.Datasources.Geometry")]
+    [System.SerializableAttribute()]
+    public partial class Point : GIS.Services.Testing.FeatureService.DefaultGeometry {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double xField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double yField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double x {
+            get {
+                return this.xField;
+            }
+            set {
+                if ((this.xField.Equals(value) != true)) {
+                    this.xField = value;
+                    this.RaisePropertyChanged("x");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double y {
+            get {
+                return this.yField;
+            }
+            set {
+                if ((this.yField.Equals(value) != true)) {
+                    this.yField = value;
+                    this.RaisePropertyChanged("y");
+                }
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FeatureService.IFeatureService")]
     public interface IFeatureService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeatureService/QueryLayers", ReplyAction="http://tempuri.org/IFeatureService/QueryLayersResponse")]
-        GIS.Services.Feature.Testing.FeatureService.FeatureLayer[] QueryLayers();
+        GIS.Services.Testing.FeatureService.FeatureLayer[] QueryLayers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeatureService/QueryLayers", ReplyAction="http://tempuri.org/IFeatureService/QueryLayersResponse")]
-        System.Threading.Tasks.Task<GIS.Services.Feature.Testing.FeatureService.FeatureLayer[]> QueryLayersAsync();
+        System.Threading.Tasks.Task<GIS.Services.Testing.FeatureService.FeatureLayer[]> QueryLayersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeatureService/QueryFeatures", ReplyAction="http://tempuri.org/IFeatureService/QueryFeaturesResponse")]
+        GIS.Services.Testing.FeatureService.Feature[] QueryFeatures(GIS.Services.Testing.FeatureService.FeatureLayer featureLayer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeatureService/QueryFeatures", ReplyAction="http://tempuri.org/IFeatureService/QueryFeaturesResponse")]
+        System.Threading.Tasks.Task<GIS.Services.Testing.FeatureService.Feature[]> QueryFeaturesAsync(GIS.Services.Testing.FeatureService.FeatureLayer featureLayer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IFeatureServiceChannel : GIS.Services.Feature.Testing.FeatureService.IFeatureService, System.ServiceModel.IClientChannel {
+    public interface IFeatureServiceChannel : GIS.Services.Testing.FeatureService.IFeatureService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FeatureServiceClient : System.ServiceModel.ClientBase<GIS.Services.Feature.Testing.FeatureService.IFeatureService>, GIS.Services.Feature.Testing.FeatureService.IFeatureService {
+    public partial class FeatureServiceClient : System.ServiceModel.ClientBase<GIS.Services.Testing.FeatureService.IFeatureService>, GIS.Services.Testing.FeatureService.IFeatureService {
         
         public FeatureServiceClient() {
         }
@@ -112,12 +325,20 @@ namespace GIS.Services.Feature.Testing.FeatureService {
                 base(binding, remoteAddress) {
         }
         
-        public GIS.Services.Feature.Testing.FeatureService.FeatureLayer[] QueryLayers() {
+        public GIS.Services.Testing.FeatureService.FeatureLayer[] QueryLayers() {
             return base.Channel.QueryLayers();
         }
         
-        public System.Threading.Tasks.Task<GIS.Services.Feature.Testing.FeatureService.FeatureLayer[]> QueryLayersAsync() {
+        public System.Threading.Tasks.Task<GIS.Services.Testing.FeatureService.FeatureLayer[]> QueryLayersAsync() {
             return base.Channel.QueryLayersAsync();
+        }
+        
+        public GIS.Services.Testing.FeatureService.Feature[] QueryFeatures(GIS.Services.Testing.FeatureService.FeatureLayer featureLayer) {
+            return base.Channel.QueryFeatures(featureLayer);
+        }
+        
+        public System.Threading.Tasks.Task<GIS.Services.Testing.FeatureService.Feature[]> QueryFeaturesAsync(GIS.Services.Testing.FeatureService.FeatureLayer featureLayer) {
+            return base.Channel.QueryFeaturesAsync(featureLayer);
         }
     }
 }

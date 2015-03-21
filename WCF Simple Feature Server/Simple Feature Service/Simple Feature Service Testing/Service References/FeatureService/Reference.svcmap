@@ -22,11 +22,13 @@
     <MetadataSource Address="http://localhost/FeatureServer/FeatureService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="FeatureService3.xsd" MetadataType="Schema" ID="f769ac50-1b3f-4561-97fc-46324271dd02" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd4" />
     <MetadataFile FileName="FeatureService.xsd" MetadataType="Schema" ID="1e45f000-1f6b-44f7-b8ac-df01d87f2880" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FeatureService31.xsd" MetadataType="Schema" ID="4217705d-03a1-44ab-a434-759492b7d882" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd3" />
     <MetadataFile FileName="FeatureService1.xsd" MetadataType="Schema" ID="33800741-e5e7-4796-9d1e-d2de3b3ac4ef" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd0" />
-    <MetadataFile FileName="FeatureService.wsdl" MetadataType="Wsdl" ID="1c4d5719-6e6a-4991-8c26-6cfa4099f2df" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?wsdl" />
     <MetadataFile FileName="FeatureService2.xsd" MetadataType="Schema" ID="3cc28dec-3a02-4326-ad24-8b02e4b9f327" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?xsd=xsd1" />
     <MetadataFile FileName="FeatureService.disco" MetadataType="Disco" ID="39254112-f068-4b2c-a669-0cea683686ea" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?disco" />
+    <MetadataFile FileName="FeatureService.wsdl" MetadataType="Wsdl" ID="1c4d5719-6e6a-4991-8c26-6cfa4099f2df" SourceId="1" SourceUrl="http://localhost/FeatureServer/FeatureService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
