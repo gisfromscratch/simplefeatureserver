@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="GIS.Services.FolderService" CodeBehind="FolderService.svc.cs" %>

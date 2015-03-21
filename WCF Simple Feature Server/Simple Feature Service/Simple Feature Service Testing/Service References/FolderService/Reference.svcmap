@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="afaf2b66-554b-4c07-81dd-259c743b8e30" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/FeatureServer/FolderService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FolderService.disco" MetadataType="Disco" ID="aadeb040-ec52-428e-a9ac-cafc8a48ebf1" SourceId="1" SourceUrl="http://localhost/FeatureServer/FolderService.svc?disco" />
+    <MetadataFile FileName="FolderService.wsdl" MetadataType="Wsdl" ID="8c83e749-3b4b-4fd8-be59-34302969e511" SourceId="1" SourceUrl="http://localhost/FeatureServer/FolderService.svc?wsdl" />
+    <MetadataFile FileName="FolderService.xsd" MetadataType="Schema" ID="d70fe9b2-930c-4850-be0d-462768c127a6" SourceId="1" SourceUrl="http://localhost/FeatureServer/FolderService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FolderService1.xsd" MetadataType="Schema" ID="b563d236-a3cf-40c3-a411-05a90bf48172" SourceId="1" SourceUrl="http://localhost/FeatureServer/FolderService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FolderService2.xsd" MetadataType="Schema" ID="45e2f034-8300-4638-83af-9f44258c9f7a" SourceId="1" SourceUrl="http://localhost/FeatureServer/FolderService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

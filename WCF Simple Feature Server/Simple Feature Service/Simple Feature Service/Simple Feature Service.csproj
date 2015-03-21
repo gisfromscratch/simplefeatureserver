@@ -75,7 +75,9 @@
       <Link>osr_wrap.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="App_Data\ServiceDescriptionTemplate.xsl" />
     <Content Include="FeatureService.svc" />
+    <Content Include="FolderService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -84,12 +86,15 @@
     <Compile Include="FeatureService.svc.cs">
       <DependentUpon>FeatureService.svc</DependentUpon>
     </Compile>
+    <Compile Include="FolderService.svc.cs">
+      <DependentUpon>FolderService.svc</DependentUpon>
+    </Compile>
     <Compile Include="IFeatureService.cs" />
+    <Compile Include="IFolderService.cs" />
+    <Compile Include="OutputFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Web.Debug.config">
