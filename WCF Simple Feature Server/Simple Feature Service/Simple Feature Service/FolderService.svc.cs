@@ -23,6 +23,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Web.Hosting;
+using System.Xml.Serialization;
 
 namespace GIS.Services
 {
@@ -35,6 +36,11 @@ namespace GIS.Services
         {
             var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
             return File.ReadAllText(xsltFilepath);
+
+            var xmlSerializer = new XmlSerializer(typeof(FileInfo));
+            var writer = new StringWriter();
+            xmlSerializer.Serialize(writer, new FileInfo(xsltFilepath));
+            return writer.ToString();
         }
 
         public string GetDescription(OutputFormat format)

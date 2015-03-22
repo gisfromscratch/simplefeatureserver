@@ -9,86 +9,38 @@
 //------------------------------------------------------------------------------
 
 namespace GIS.Services.Testing.FolderService {
+    using System.Runtime.Serialization;
     
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OutputFormat", Namespace="http://schemas.datacontract.org/2004/07/GIS.Services")]
+    public enum OutputFormat : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        html = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        json = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        pjson = 2,
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FolderService.IFolderService")]
     public interface IFolderService {
         
-        // CODEGEN: Generating message contract since element name format from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolderService/GetDescription", ReplyAction="http://tempuri.org/IFolderService/GetDescriptionResponse")]
-        GIS.Services.Testing.FolderService.GetDescriptionResponse GetDescription(GIS.Services.Testing.FolderService.GetDescriptionRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolderService/Get", ReplyAction="http://tempuri.org/IFolderService/GetResponse")]
+        string Get();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolderService/Get", ReplyAction="http://tempuri.org/IFolderService/GetResponse")]
+        System.Threading.Tasks.Task<string> GetAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolderService/GetDescription", ReplyAction="http://tempuri.org/IFolderService/GetDescriptionResponse")]
-        System.Threading.Tasks.Task<GIS.Services.Testing.FolderService.GetDescriptionResponse> GetDescriptionAsync(GIS.Services.Testing.FolderService.GetDescriptionRequest request);
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetDescriptionRequest {
+        string GetDescription(GIS.Services.Testing.FolderService.OutputFormat format);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDescription", Namespace="http://tempuri.org/", Order=0)]
-        public GIS.Services.Testing.FolderService.GetDescriptionRequestBody Body;
-        
-        public GetDescriptionRequest() {
-        }
-        
-        public GetDescriptionRequest(GIS.Services.Testing.FolderService.GetDescriptionRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetDescriptionRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string format;
-        
-        public GetDescriptionRequestBody() {
-        }
-        
-        public GetDescriptionRequestBody(string format) {
-            this.format = format;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetDescriptionResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDescriptionResponse", Namespace="http://tempuri.org/", Order=0)]
-        public GIS.Services.Testing.FolderService.GetDescriptionResponseBody Body;
-        
-        public GetDescriptionResponse() {
-        }
-        
-        public GetDescriptionResponse(GIS.Services.Testing.FolderService.GetDescriptionResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetDescriptionResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public string GetDescriptionResult;
-        
-        public GetDescriptionResponseBody() {
-        }
-        
-        public GetDescriptionResponseBody(string GetDescriptionResult) {
-            this.GetDescriptionResult = GetDescriptionResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolderService/GetDescription", ReplyAction="http://tempuri.org/IFolderService/GetDescriptionResponse")]
+        System.Threading.Tasks.Task<string> GetDescriptionAsync(GIS.Services.Testing.FolderService.OutputFormat format);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -118,29 +70,20 @@ namespace GIS.Services.Testing.FolderService {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GIS.Services.Testing.FolderService.GetDescriptionResponse GIS.Services.Testing.FolderService.IFolderService.GetDescription(GIS.Services.Testing.FolderService.GetDescriptionRequest request) {
-            return base.Channel.GetDescription(request);
+        public string Get() {
+            return base.Channel.Get();
         }
         
-        public string GetDescription(string format) {
-            GIS.Services.Testing.FolderService.GetDescriptionRequest inValue = new GIS.Services.Testing.FolderService.GetDescriptionRequest();
-            inValue.Body = new GIS.Services.Testing.FolderService.GetDescriptionRequestBody();
-            inValue.Body.format = format;
-            GIS.Services.Testing.FolderService.GetDescriptionResponse retVal = ((GIS.Services.Testing.FolderService.IFolderService)(this)).GetDescription(inValue);
-            return retVal.Body.GetDescriptionResult;
+        public System.Threading.Tasks.Task<string> GetAsync() {
+            return base.Channel.GetAsync();
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GIS.Services.Testing.FolderService.GetDescriptionResponse> GIS.Services.Testing.FolderService.IFolderService.GetDescriptionAsync(GIS.Services.Testing.FolderService.GetDescriptionRequest request) {
-            return base.Channel.GetDescriptionAsync(request);
+        public string GetDescription(GIS.Services.Testing.FolderService.OutputFormat format) {
+            return base.Channel.GetDescription(format);
         }
         
-        public System.Threading.Tasks.Task<GIS.Services.Testing.FolderService.GetDescriptionResponse> GetDescriptionAsync(string format) {
-            GIS.Services.Testing.FolderService.GetDescriptionRequest inValue = new GIS.Services.Testing.FolderService.GetDescriptionRequest();
-            inValue.Body = new GIS.Services.Testing.FolderService.GetDescriptionRequestBody();
-            inValue.Body.format = format;
-            return ((GIS.Services.Testing.FolderService.IFolderService)(this)).GetDescriptionAsync(inValue);
+        public System.Threading.Tasks.Task<string> GetDescriptionAsync(GIS.Services.Testing.FolderService.OutputFormat format) {
+            return base.Channel.GetDescriptionAsync(format);
         }
     }
 }

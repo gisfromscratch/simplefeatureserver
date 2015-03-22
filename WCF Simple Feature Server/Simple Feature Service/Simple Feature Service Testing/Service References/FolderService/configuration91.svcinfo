@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="1vkLrRgQajK+CBYrcfDi0JrTKF8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="RZLrlF7yaiJVgPSliBiNI9HWG3g=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IFolderService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IFolderService" contract="FolderService.IFolderService" bindingType="basicHttpBinding" address="http://localhost/FeatureServer/FolderService.svc" bindingConfiguration="BasicHttpBinding_IFolderService">
+    <endpoint name="BasicHttpBinding_IFolderService" contract="FolderService.IFolderService" bindingType="basicHttpBinding" address="http://localhost/FeatureServer/FolderService.svc/folder/services" bindingConfiguration="BasicHttpBinding_IFolderService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/FeatureServer/FolderService.svc</serializedValue>
+          <serializedValue>http://localhost/FeatureServer/FolderService.svc/folder/services</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

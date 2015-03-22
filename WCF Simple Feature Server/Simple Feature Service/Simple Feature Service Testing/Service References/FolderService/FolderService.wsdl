@@ -7,6 +7,12 @@
       <xsd:import schemaLocation="http://localhost/FeatureServer/FolderService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GIS.Services" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IFolderService_Get_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="IFolderService_Get_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
   <wsdl:message name="IFolderService_GetDescription_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDescription" />
   </wsdl:message>
@@ -14,6 +20,10 @@
     <wsdl:part name="parameters" element="tns:GetDescriptionResponse" />
   </wsdl:message>
   <wsdl:portType name="IFolderService">
+    <wsdl:operation name="Get">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFolderService/Get" message="tns:IFolderService_Get_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFolderService/GetResponse" message="tns:IFolderService_Get_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetDescription">
       <wsdl:input wsaw:Action="http://tempuri.org/IFolderService/GetDescription" message="tns:IFolderService_GetDescription_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFolderService/GetDescriptionResponse" message="tns:IFolderService_GetDescription_OutputMessage" />
@@ -21,6 +31,15 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFolderService" type="tns:IFolderService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://tempuri.org/IFolderService/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetDescription">
       <soap:operation soapAction="http://tempuri.org/IFolderService/GetDescription" style="document" />
       <wsdl:input>
@@ -33,7 +52,7 @@
   </wsdl:binding>
   <wsdl:service name="FolderService">
     <wsdl:port name="BasicHttpBinding_IFolderService" binding="tns:BasicHttpBinding_IFolderService">
-      <soap:address location="http://localhost/FeatureServer/FolderService.svc" />
+      <soap:address location="http://localhost/FeatureServer/FolderService.svc/folder/services" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

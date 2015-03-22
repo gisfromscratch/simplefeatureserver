@@ -122,9 +122,6 @@
     <None Include="Service References\FolderService\FolderService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\FolderService\GIS.Services.Testing.FolderService.GetDescriptionResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\FeatureService\" />

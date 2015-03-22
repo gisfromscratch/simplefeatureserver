@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GIS.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GIS.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:simpleType name="OutputFormat">
-    <xs:restriction base="xs:string" />
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="html" />
+      <xs:enumeration value="json" />
+      <xs:enumeration value="pjson" />
+    </xs:restriction>
   </xs:simpleType>
   <xs:element name="OutputFormat" nillable="true" type="tns:OutputFormat" />
 </xs:schema>

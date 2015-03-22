@@ -29,8 +29,8 @@ namespace GIS.Services.Testing.Fixtures
         [TestMethod]
         public void TestGetDescription()
         {
-            var folderService = new FolderServiceClient();
-            var description = folderService.GetDescription(@"html");
+            var folderService = new FolderServiceClient(@"BasicHttpBinding_IFolderService");
+            var description = folderService.Get();
             Assert.IsNotNull(description, @"The description must not be null!");
             Assert.IsFalse(string.IsNullOrEmpty(description), @"The description must not be empty!");
         }
