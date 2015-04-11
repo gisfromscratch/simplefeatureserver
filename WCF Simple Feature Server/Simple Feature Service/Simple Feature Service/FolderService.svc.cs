@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using GIS.Services.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,9 +22,12 @@ using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 using System.Web.Hosting;
+using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.Xsl;
 
 namespace GIS.Services
 {
@@ -35,12 +39,34 @@ namespace GIS.Services
         public string GetDescription()
         {
             var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
-            return File.ReadAllText(xsltFilepath);
+            //return File.ReadAllText(xsltFilepath);
 
-            var xmlSerializer = new XmlSerializer(typeof(FileInfo));
-            var writer = new StringWriter();
-            xmlSerializer.Serialize(writer, new FileInfo(xsltFilepath));
-            return writer.ToString();
+            var xmlSerializer = new XmlSerializer(typeof(ServerFolder));
+            string xmlAsText;
+            using (var writer = new StringWriter())
+            {
+                xmlSerializer.Serialize(writer, new ServerFolder { Name = @"root" });
+                xmlAsText = writer.ToString();
+            }
+
+            var xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlAsText);
+
+            using (var memoryStream = new MemoryStream())
+            {
+                var xslTransform = new XslTransform();
+                xslTransform.Load(xsltFilepath);
+                xslTransform.Transform(xmlDocument, null, memoryStream);
+
+                memoryStream.Position = 0;
+                using (var streamReader = new StreamReader(memoryStream))
+                {
+                    WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
+                    return streamReader.ReadToEnd();
+                }
+            }
+
+            //return xmlDocument.DocumentElement;
         }
 
         public string GetDescription(OutputFormat format)

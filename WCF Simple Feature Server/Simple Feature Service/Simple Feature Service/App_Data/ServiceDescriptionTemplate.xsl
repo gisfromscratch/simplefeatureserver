@@ -3,7 +3,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title><xsl:value-of select="name"/></title>
+        <title><xsl:value-of select="//ServerFolder/Name"/>:</title>
       </head>
       <body></body>
     </html>
