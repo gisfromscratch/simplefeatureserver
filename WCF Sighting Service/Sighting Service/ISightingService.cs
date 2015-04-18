@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using Sighting.Services.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,36 @@ namespace Sighting.Services
     [ServiceContract]
     public interface ISightingService
     {
+        /// <summary>
+        /// Creates a new device.
+        /// </summary>
+        /// <param name="name">The name of the new device.</param>
+        /// <returns>The newly created device.</returns>
         [OperationContract]
-        ICollection<string> QueryAllDevices();
+        SightingDevice CreateDevice(string name);
+
+        /// <summary>
+        /// Creates a new sighting.
+        /// </summary>
+        /// <param name="latitude">The latitude where the sighting occured.</param>
+        /// <param name="longitude">The longitude where the sighting occured.</param>
+        /// <param name="date">The date when the sighting occured.</param>
+        /// <returns>The newly created sighting.</returns>
+        [OperationContract]
+        Sighting.Services.Data.Sighting CreateSighting(double latitude, double longitude, DateTime date);
+
+        /// <summary>
+        /// Queries all registered devices.
+        /// </summary>
+        /// <returns>The names of all registered devices.</returns>
+        [OperationContract]
+        ICollection<SightingDevice> QueryAllDevices();
+
+        /// <summary>
+        /// Queries all sightings.
+        /// </summary>
+        /// <returns>The well known text representations of all sightings.</returns>
+        [OperationContract]
+        ICollection<string> QueryAllSightings();
     }
 }

@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
+using Sighting.Services.Data;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Spatial;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -29,13 +32,45 @@ namespace Sighting.Services
     /// </summary>
     public class SightingService : ISightingService
     {
-        public ICollection<string> QueryAllDevices()
+        private const int WGS84 = 4326;
+
+        public SightingDevice CreateDevice(string name)
         {
             using (var databaseModel = new GeodataEntities())
             {
-                var deviceNames = from device in databaseModel.devices orderby device.Name select device.Name;
-                return deviceNames.ToList();
+                databaseModel.devices.Add(new devices { Name = name });
+                databaseModel.SaveChanges();
+                return new SightingDevice { Name = name };
             }
         }
-    }
+
+        public Sighting.Services.Data.Sighting CreateSighting(double latitude, double longitude, DateTime date)
+        {
+            using (var databaseModel = new GeodataEntities())
+            {
+                var location = DbGeometry.PointFromText(string.Format(@"POINT ({0} {1})", longitude, latitude), WGS84);
+                databaseModel.sightings.Add(new sightings { Shape = location, Date = date });
+                databaseModel.SaveChanges();
+                return new Sighting.Services.Data.Sighting { GeometryAsWellKnownText = location.AsText(), Date = date };
+            }
+        }
+
+        public ICollection<SightingDevice> QueryAllDevices()
+        {
+            using (var databaseModel = new GeodataEntities())
+            {
+                var devices = from device in databaseModel.devices orderby device.Name select new SightingDevice { Name = device.Name };
+                return devices.ToList();
+            }
+        }
+
+        public ICollection<string> QueryAllSightings()
+        {
+            using (var databaseModel = new GeodataEntities())
+            {
+                var geometries = from sighting in databaseModel.sightings orderby sighting.Date select sighting.Shape.AsText();
+                return geometries.ToList();
+            }
+        }
+     }
 }
