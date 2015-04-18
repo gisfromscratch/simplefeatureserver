@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GeodataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sightings">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shape" Type="geometry" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="DeviceId" Type="int" />
+        </EntityType>
+        <Association Name="FK_sightings_devices">
+          <End Role="devices" Type="Self.devices" Multiplicity="0..1" />
+          <End Role="sightings" Type="Self.sightings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devices">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="sightings">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GeodataModelStoreContainer">
+          <EntitySet Name="devices" EntityType="Self.devices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sightings" EntityType="Self.sightings" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_sightings_devices" Association="Self.FK_sightings_devices">
+            <End Role="devices" EntitySet="devices" />
+            <End Role="sightings" EntitySet="sightings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GeodataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="devices">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="sightings" Relationship="Self.FK_sightings_devices" FromRole="devices" ToRole="sightings" />
+        </EntityType>
+        <EntityType Name="sightings">
+          <Key>
+            <PropertyRef Name="OID" />
+          </Key>
+          <Property Name="OID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shape" Type="Geometry" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="DeviceId" Type="Int32" />
+          <NavigationProperty Name="devices" Relationship="Self.FK_sightings_devices" FromRole="sightings" ToRole="devices" />
+        </EntityType>
+        <Association Name="FK_sightings_devices">
+          <End Role="devices" Type="Self.devices" Multiplicity="0..1" />
+          <End Role="sightings" Type="Self.sightings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="devices">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="sightings">
+              <PropertyRef Name="DeviceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GeodataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="devices" EntityType="Self.devices" />
+          <EntitySet Name="sightings" EntityType="Self.sightings" />
+          <AssociationSet Name="FK_sightings_devices" Association="Self.FK_sightings_devices">
+            <End Role="devices" EntitySet="devices" />
+            <End Role="sightings" EntitySet="sightings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GeodataModelStoreContainer" CdmEntityContainer="GeodataEntities">
+          <EntitySetMapping Name="devices">
+            <EntityTypeMapping TypeName="GeodataModel.devices">
+              <MappingFragment StoreEntitySet="devices">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sightings">
+            <EntityTypeMapping TypeName="GeodataModel.sightings">
+              <MappingFragment StoreEntitySet="sightings">
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="Shape" ColumnName="Shape" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
