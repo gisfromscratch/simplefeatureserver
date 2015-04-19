@@ -48,7 +48,7 @@ namespace Sighting.Services
         {
             using (var databaseModel = new GeodataEntities())
             {
-                var location = DbGeometry.PointFromText(string.Format(@"POINT ({0} {1})", longitude, latitude), WGS84);
+                var location = DbGeometry.PointFromText(string.Format(CultureInfo.InvariantCulture, @"POINT ({0} {1})", longitude, latitude), WGS84);
                 databaseModel.sightings.Add(new sightings { Shape = location, Date = date });
                 databaseModel.SaveChanges();
                 return new Sighting.Services.Data.Sighting { GeometryAsWellKnownText = location.AsText(), Date = date };
