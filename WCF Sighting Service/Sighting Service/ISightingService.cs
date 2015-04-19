@@ -37,6 +37,7 @@ namespace Sighting.Services
         /// <param name="name">The name of the new device.</param>
         /// <returns>The newly created device.</returns>
         [OperationContract]
+        [WebInvoke(UriTemplate = @"device/create", Method = @"PUT")]
         SightingDevice CreateDevice(string name);
 
         /// <summary>
@@ -47,6 +48,7 @@ namespace Sighting.Services
         /// <param name="date">The date when the sighting occured.</param>
         /// <returns>The newly created sighting.</returns>
         [OperationContract]
+        [WebInvoke(UriTemplate = @"sighting/create", Method = @"PUT")]
         Sighting.Services.Data.Sighting CreateSighting(double latitude, double longitude, DateTime date);
 
         /// <summary>
@@ -54,6 +56,7 @@ namespace Sighting.Services
         /// </summary>
         /// <returns>The names of all registered devices.</returns>
         [OperationContract]
+        [WebGet(UriTemplate = @"devices")]
         ICollection<SightingDevice> QueryAllDevices();
 
         /// <summary>
@@ -61,6 +64,7 @@ namespace Sighting.Services
         /// </summary>
         /// <returns>The well known text representations of all sightings.</returns>
         [OperationContract]
+        [WebGet(UriTemplate = @"sightings")]
         ICollection<string> QueryAllSightings();
     }
 }
