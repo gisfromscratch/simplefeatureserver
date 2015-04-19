@@ -27,6 +27,8 @@ namespace Sighting.Services
 {
     /// <summary>
     /// Creates sightings from different devices.
+    /// remarks: POST should always create a new entity.
+    /// remarks: PUT should create or udpate an entity.
     /// </summary>
     [ServiceContract]
     public interface ISightingService
@@ -37,7 +39,11 @@ namespace Sighting.Services
         /// <param name="name">The name of the new device.</param>
         /// <returns>The newly created device.</returns>
         [OperationContract]
-        [WebInvoke(UriTemplate = @"device/create", Method = @"PUT")]
+        [WebInvoke(UriTemplate = @"device/create",
+                   Method = @"POST", 
+                   RequestFormat = WebMessageFormat.Json,
+                   ResponseFormat = WebMessageFormat.Json,
+                   BodyStyle = WebMessageBodyStyle.Wrapped)]
         SightingDevice CreateDevice(string name);
 
         /// <summary>
@@ -48,7 +54,11 @@ namespace Sighting.Services
         /// <param name="date">The date when the sighting occured.</param>
         /// <returns>The newly created sighting.</returns>
         [OperationContract]
-        [WebInvoke(UriTemplate = @"sighting/create", Method = @"PUT")]
+        [WebInvoke(UriTemplate = @"sighting/create", 
+                   Method = @"POST",
+                   RequestFormat = WebMessageFormat.Json,
+                   ResponseFormat = WebMessageFormat.Json,
+                   BodyStyle = WebMessageBodyStyle.Wrapped)]
         Sighting.Services.Data.Sighting CreateSighting(double latitude, double longitude, DateTime date);
 
         /// <summary>
@@ -56,7 +66,9 @@ namespace Sighting.Services
         /// </summary>
         /// <returns>The names of all registered devices.</returns>
         [OperationContract]
-        [WebGet(UriTemplate = @"devices")]
+        [WebGet(UriTemplate = @"devices",
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedResponse)]
         ICollection<SightingDevice> QueryAllDevices();
 
         /// <summary>
@@ -64,7 +76,9 @@ namespace Sighting.Services
         /// </summary>
         /// <returns>The well known text representations of all sightings.</returns>
         [OperationContract]
-        [WebGet(UriTemplate = @"sightings")]
+        [WebGet(UriTemplate = @"sightings",
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedResponse)]
         ICollection<string> QueryAllSightings();
     }
 }
