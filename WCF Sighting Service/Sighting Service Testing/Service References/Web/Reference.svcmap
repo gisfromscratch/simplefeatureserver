@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0f585cf1-66a5-42e6-89e5-f4b5da63b8d2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://h2381303.stratoserver.net:8081/SightingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SightingService.xsd" MetadataType="Schema" ID="81a7890b-8941-4dcd-a6eb-495062f576db" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SightingService1.xsd" MetadataType="Schema" ID="03ebbbef-d2e3-4ea9-b798-f1ee7d6e50d5" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SightingService.disco" MetadataType="Disco" ID="6eba8043-8e44-4a29-a577-56b2c446c6e9" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?disco" />
+    <MetadataFile FileName="SightingService.wsdl" MetadataType="Wsdl" ID="c590f29c-6d72-4856-a8d4-34bb30d44a53" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?wsdl" />
+    <MetadataFile FileName="SightingService2.xsd" MetadataType="Schema" ID="42f6eb3f-b7a7-4994-bdf5-2da55d901fb6" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SightingService3.xsd" MetadataType="Schema" ID="92d42896-2af2-4b15-822f-1d24637bb465" SourceId="1" SourceUrl="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

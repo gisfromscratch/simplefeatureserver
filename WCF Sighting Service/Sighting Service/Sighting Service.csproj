@@ -122,6 +122,7 @@
       <DependentUpon>SightingsModel.edmx</DependentUpon>
       <LastGenOutput>SightingsModel.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\Sighting Service.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SightingService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Sighting.Services.Data" />
+      <xsd:import schemaLocation="http://h2381303.stratoserver.net:8081/SightingService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISightingService_CreateDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDevice" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_CreateDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_CreateSighting_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSighting" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_CreateSighting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateSightingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_QueryAllDevices_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAllDevices" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_QueryAllDevices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAllDevicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_QueryAllSightings_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAllSightings" />
+  </wsdl:message>
+  <wsdl:message name="ISightingService_QueryAllSightings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryAllSightingsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISightingService">
+    <wsdl:operation name="CreateDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISightingService/CreateDevice" message="tns:ISightingService_CreateDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISightingService/CreateDeviceResponse" message="tns:ISightingService_CreateDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSighting">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISightingService/CreateSighting" message="tns:ISightingService_CreateSighting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISightingService/CreateSightingResponse" message="tns:ISightingService_CreateSighting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllDevices">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISightingService/QueryAllDevices" message="tns:ISightingService_QueryAllDevices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISightingService/QueryAllDevicesResponse" message="tns:ISightingService_QueryAllDevices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllSightings">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISightingService/QueryAllSightings" message="tns:ISightingService_QueryAllSightings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISightingService/QueryAllSightingsResponse" message="tns:ISightingService_QueryAllSightings_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISightingService" type="tns:ISightingService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateDevice">
+      <soap:operation soapAction="http://tempuri.org/ISightingService/CreateDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateSighting">
+      <soap:operation soapAction="http://tempuri.org/ISightingService/CreateSighting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllDevices">
+      <soap:operation soapAction="http://tempuri.org/ISightingService/QueryAllDevices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAllSightings">
+      <soap:operation soapAction="http://tempuri.org/ISightingService/QueryAllSightings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SightingService">
+    <wsdl:port name="BasicHttpBinding_ISightingService" binding="tns:BasicHttpBinding_ISightingService">
+      <soap:address location="http://h2381303.stratoserver.net:8081/SightingService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -5,6 +5,11 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sighting Service", "Sighting Service\Sighting Service.csproj", "{9B6B3840-0217-4D18-BB08-F1859ED60254}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sighting Service Testing", "Sighting Service Testing\Sighting Service Testing.csproj", "{36A1BF95-3AC0-4BAF-A2C4-50F024CC0AFE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B6B3840-0217-4D18-BB08-F1859ED60254} = {9B6B3840-0217-4D18-BB08-F1859ED60254}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{9B6B3840-0217-4D18-BB08-F1859ED60254}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B6B3840-0217-4D18-BB08-F1859ED60254}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B6B3840-0217-4D18-BB08-F1859ED60254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A1BF95-3AC0-4BAF-A2C4-50F024CC0AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A1BF95-3AC0-4BAF-A2C4-50F024CC0AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A1BF95-3AC0-4BAF-A2C4-50F024CC0AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A1BF95-3AC0-4BAF-A2C4-50F024CC0AFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
