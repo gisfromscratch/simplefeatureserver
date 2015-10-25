@@ -29,9 +29,21 @@ namespace Sighting.Services.Data
     public class Sighting
     {
         /// <summary>
+        /// The latitude of this sighting.
+        /// </summary>
+        [DataMember]
+        public double Latitude { get; set; }
+
+        /// <summary>
+        /// The longitude of this sighting.
+        /// </summary>
+        [DataMember]
+        public double Longitude { get; set; }
+
+        /// <summary>
         /// The well known text representation of the underlying geometry.
         /// </summary>
-       [DataMember]
+        [DataMember]
         public string GeometryAsWellKnownText { get; set; }
 
         /// <summary>
