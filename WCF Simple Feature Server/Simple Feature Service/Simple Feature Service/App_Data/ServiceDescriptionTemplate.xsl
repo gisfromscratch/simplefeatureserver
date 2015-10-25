@@ -5,7 +5,7 @@
       <head>
         <title><xsl:value-of select="//ServerFolder/Name"/>:</title>
       </head>
-      <body></body>
+      <body>HUHU</body>
     </html>
   </xsl:template>
 </xsl:stylesheet>

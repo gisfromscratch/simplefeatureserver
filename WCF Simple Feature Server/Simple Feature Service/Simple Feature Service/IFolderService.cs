@@ -23,6 +23,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Xml;
 
 namespace GIS.Services
 {
@@ -35,12 +36,12 @@ namespace GIS.Services
         /// <summary>
         /// The description of this and all child services.
         /// </summary>
-        /// <returns>The description using JSON format.</returns>
+        /// <returns>The description using HTML format.</returns>
         [OperationContract(Name = @"Get")]
         [WebInvoke(Method = @"GET", 
-            UriTemplate = @"/", 
+            UriTemplate = @"/")
             //ResponseFormat = WebMessageFormat
-            BodyStyle = WebMessageBodyStyle.Bare)
+            //BodyStyle = WebMessageBodyStyle.Bare)
         ]
         Stream GetDescription();
 

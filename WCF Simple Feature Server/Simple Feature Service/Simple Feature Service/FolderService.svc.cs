@@ -61,14 +61,9 @@ namespace GIS.Services
 
                 memoryStream.Position = 0;
                 WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
-                return memoryStream;
-                //using (var streamReader = new StreamReader(memoryStream))
-                //{
-                //    WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
-                //    return streamReader.ReadToEnd();
-                //}
             }
 
+            return memoryStream;
             //return xmlDocument.DocumentElement;
         }
 
