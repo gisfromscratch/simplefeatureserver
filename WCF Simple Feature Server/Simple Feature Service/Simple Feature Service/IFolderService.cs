@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
+using GIS.Services.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -33,15 +35,20 @@ namespace GIS.Services
         /// <summary>
         /// The description of this and all child services.
         /// </summary>
-        /// <returns>The description using HTML format.</returns>
+        /// <returns>The description using JSON format.</returns>
         [OperationContract(Name = @"Get")]
-        /*[WebInvoke(Method = "GET", 
-            UriTemplate = "/", 
-            ResponseFormat = WebMessageFormat.Xml, 
-            RequestFormat = WebMessageFormat.Xml, 
-            BodyStyle = WebMessageBodyStyle.Bare)]*/
-        [WebGet]
-        string GetDescription();
+        [WebInvoke(Method = @"GET", 
+            UriTemplate = @"/", 
+            //ResponseFormat = WebMessageFormat
+            BodyStyle = WebMessageBodyStyle.Bare)
+        ]
+        Stream GetDescription();
+
+        [OperationContract(Name = @"services")]
+        [WebInvoke(Method = @"GET", 
+            UriTemplate = @"/features", 
+            ResponseFormat = WebMessageFormat.Json)]
+        IList<FeatureServer> GetFeatureServices();
 
         /// <summary>
         /// The description of this and all child services.

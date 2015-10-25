@@ -36,7 +36,7 @@ namespace GIS.Services
     /// </summary>
     public class FolderService : IFolderService
     {
-        public string GetDescription()
+        public Stream GetDescription()
         {
             var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
             //return File.ReadAllText(xsltFilepath);
@@ -52,21 +52,31 @@ namespace GIS.Services
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlAsText);
 
-            using (var memoryStream = new MemoryStream())
+            //using (var memoryStream = new MemoryStream())
+            var memoryStream = new MemoryStream();
             {
                 var xslTransform = new XslTransform();
                 xslTransform.Load(xsltFilepath);
                 xslTransform.Transform(xmlDocument, null, memoryStream);
 
                 memoryStream.Position = 0;
-                using (var streamReader = new StreamReader(memoryStream))
-                {
-                    WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
-                    return streamReader.ReadToEnd();
-                }
+                WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
+                return memoryStream;
+                //using (var streamReader = new StreamReader(memoryStream))
+                //{
+                //    WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
+                //    return streamReader.ReadToEnd();
+                //}
             }
 
             //return xmlDocument.DocumentElement;
+        }
+
+        public IList<FeatureServer> GetFeatureServices()
+        {
+            var featureServices = new List<FeatureServer>();
+            featureServices.Add(new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty });
+            return featureServices;
         }
 
         public string GetDescription(OutputFormat format)

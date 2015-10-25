@@ -83,6 +83,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\FeatureServer.cs" />
     <Compile Include="Data\ServerFolder.cs" />
     <Compile Include="FeatureService.svc.cs">
       <DependentUpon>FeatureService.svc</DependentUpon>
