@@ -3,10 +3,34 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title><xsl:value-of select="//ServerFolder/Name"/>:</title>
+        <title><xsl:value-of select="//currentVersion"/>:</title>
         <link href="static/css/main.css" rel="stylesheet" type="text/css"></link>
       </head>
-      <body>HUHU</body>
+      <body>
+        <!-- Header-->
+        <table class="userTable" width="100%">
+          <tbody>
+            <tr>
+              <td class="titlecell">REST Services Directory</td>
+              <td align="right">Experimental</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <!-- Navigation -->
+        <table class="navTable" width="100%">
+          <tbody>
+            <tr valign="top">
+              <td class="breadcrumbs">
+                <a href="/rest/services">Home</a>&gt;<a href="/rest/services">services</a>
+              </td>
+              <td align="right">
+                <a href="/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="/rest/services?f=help" target="_blank">API Reference</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </body>
     </html>
   </xsl:template>
 </xsl:stylesheet>

@@ -32,39 +32,38 @@ using System.Xml.Xsl;
 namespace GIS.Services
 {
     /// <summary>
-    /// Represents a folder service.
+    /// Represents a catalog service.
     /// </summary>
-    public class FolderService : IFolderService
+    public class CatalogService : ICatalogService
     {
         public Stream GetDescription()
         {
             var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
-            //return File.ReadAllText(xsltFilepath);
-
-            var xmlSerializer = new XmlSerializer(typeof(ServerFolder));
+            
+            // Using the default WCF Data Contract Serializer
+            // The XML serializer is not able to serialize instances which implements IDictionary.
+            var xmlSerializer = new DataContractSerializer(typeof(Catalog));
             string xmlAsText;
             using (var writer = new StringWriter())
             {
-                xmlSerializer.Serialize(writer, new ServerFolder { Name = @"root" });
-                xmlAsText = writer.ToString();
+                using (var xmlWriter = new XmlTextWriter(writer))
+                {
+                    xmlSerializer.WriteObject(xmlWriter, new Catalog());
+                    xmlAsText = writer.ToString();
+                }
             }
 
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlAsText);
 
-            //using (var memoryStream = new MemoryStream())
             var memoryStream = new MemoryStream();
-            {
-                var xslTransform = new XslTransform();
-                xslTransform.Load(xsltFilepath);
-                xslTransform.Transform(xmlDocument, null, memoryStream);
+            var xslTransform = new XslTransform();
+            xslTransform.Load(xsltFilepath);
+            xslTransform.Transform(xmlDocument, null, memoryStream);
 
-                memoryStream.Position = 0;
-                WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
-            }
-
+            memoryStream.Position = 0;
+            WebOperationContext.Current.OutgoingResponse.ContentType = @"text/html";
             return memoryStream;
-            //return xmlDocument.DocumentElement;
         }
 
         public Stream GetStylesheet(string fileName)

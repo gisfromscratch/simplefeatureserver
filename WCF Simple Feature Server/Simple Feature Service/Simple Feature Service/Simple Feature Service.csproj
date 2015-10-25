@@ -78,22 +78,22 @@
     <Content Include="App_Data\main.css" />
     <Content Include="App_Data\ServiceDescriptionTemplate.xsl" />
     <Content Include="FeatureService.svc" />
-    <Content Include="FolderService.svc" />
+    <Content Include="CatalogService.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\FeatureServer.cs" />
-    <Compile Include="Data\ServerFolder.cs" />
+    <Compile Include="Data\Catalog.cs" />
     <Compile Include="FeatureService.svc.cs">
       <DependentUpon>FeatureService.svc</DependentUpon>
     </Compile>
-    <Compile Include="FolderService.svc.cs">
-      <DependentUpon>FolderService.svc</DependentUpon>
+    <Compile Include="CatalogService.svc.cs">
+      <DependentUpon>CatalogService.svc</DependentUpon>
     </Compile>
     <Compile Include="IFeatureService.cs" />
-    <Compile Include="IFolderService.cs" />
+    <Compile Include="ICatalogService.cs" />
     <Compile Include="OutputFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -28,10 +28,10 @@ using System.Xml;
 namespace GIS.Services
 {
     /// <summary>
-    /// Represents a folder service describing the available services and allows navigating through those services.
+    /// Represents a catalog service describing the available services and allows navigating through those services.
     /// </summary>
     [ServiceContract]
-    public interface IFolderService
+    public interface ICatalogService
     {
         /// <summary>
         /// The description of this and all child services.
