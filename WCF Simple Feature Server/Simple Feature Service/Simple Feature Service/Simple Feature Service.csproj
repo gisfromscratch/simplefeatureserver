@@ -75,6 +75,7 @@
       <Link>osr_wrap.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="App_Data\main.css" />
     <Content Include="App_Data\ServiceDescriptionTemplate.xsl" />
     <Content Include="FeatureService.svc" />
     <Content Include="FolderService.svc" />

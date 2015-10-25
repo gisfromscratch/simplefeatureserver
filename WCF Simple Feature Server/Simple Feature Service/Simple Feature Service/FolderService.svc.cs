@@ -67,6 +67,12 @@ namespace GIS.Services
             //return xmlDocument.DocumentElement;
         }
 
+        public Stream GetStylesheet(string fileName)
+        {
+            var cssFilePath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", fileName);
+            return File.OpenRead(cssFilePath);
+        }
+
         public IList<FeatureServer> GetFeatureServices()
         {
             var featureServices = new List<FeatureServer>();

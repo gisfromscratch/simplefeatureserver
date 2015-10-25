@@ -45,6 +45,16 @@ namespace GIS.Services
         ]
         Stream GetDescription();
 
+        /// <summary>
+        /// The default CSS stylesheet for rendering the HTML view.
+        /// </summary>
+        /// <returns>The default CSS stylesheet</returns>
+        [OperationContract(Name = @"stylesheet")]
+        [WebInvoke(Method = @"GET",
+            UriTemplate = @"/static/css/{fileName}")
+        ]
+        Stream GetStylesheet(string fileName);
+
         [OperationContract(Name = @"services")]
         [WebInvoke(Method = @"GET", 
             UriTemplate = @"/features", 
