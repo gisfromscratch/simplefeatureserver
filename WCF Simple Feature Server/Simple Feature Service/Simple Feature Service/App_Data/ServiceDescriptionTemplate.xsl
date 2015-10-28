@@ -65,9 +65,10 @@
               </li>
             </xsl:for-each>
           </ul>
-
           <br/>
           <br/>
+          
+          <!-- Services -->
           <b>Services: </b>
           <ul>
             <xsl:for-each select="d:services/a:KeyValueOfstringstring">
@@ -78,8 +79,10 @@
               </li>
             </xsl:for-each>
           </ul>
-
-          <br/><br/>
+          <br/>
+          <br/>
+          
+          <!-- Supported Interfaces -->
           <b>Supported Interfaces:</b>
           &#160;&#160;<a target="_blank" href="{url}?f=pjson">REST</a>
           <br/><br/>
