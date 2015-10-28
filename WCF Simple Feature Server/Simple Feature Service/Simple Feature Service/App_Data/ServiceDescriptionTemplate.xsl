@@ -3,7 +3,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title><xsl:value-of select="//currentVersion"/>:</title>
+        <title>REST <xsl:value-of select="currentVersion"/>:</title>
         <link href="static/css/main.css" rel="stylesheet" type="text/css"></link>
       </head>
       <body>
@@ -22,7 +22,7 @@
           <tbody>
             <tr valign="top">
               <td class="breadcrumbs">
-                <a href="/rest/services">Home</a>&gt;<a href="/rest/services">services</a>
+                <a href="{url}">Home</a>&gt;<a href="{url}">services</a>
               </td>
               <td align="right">
                 <a href="/sdk/rest/02ss/02ss00000057000000.htm" target="_blank">Help</a> | <a href="/rest/services?f=help" target="_blank">API Reference</a>

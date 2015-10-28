@@ -61,5 +61,11 @@ namespace GIS.Services.Data
         /// </summary>
         [DataMember(Name = @"services")]
         public IDictionary<string, string> Services;
+
+        /// <summary>
+        /// The url of this catalog.
+        /// </summary>
+        [DataMember(Name = @"url")]
+        public string ServiceUrl { get; set; }
     }
 }

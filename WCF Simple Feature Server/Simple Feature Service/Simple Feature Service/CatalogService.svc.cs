@@ -48,7 +48,11 @@ namespace GIS.Services
             {
                 using (var xmlWriter = new XmlTextWriter(writer))
                 {
-                    xmlSerializer.WriteObject(xmlWriter, new Catalog());
+                    var serviceUrl = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.BaseUri.AbsoluteUri;
+                    var catalog = new Catalog();
+                    catalog.CurrentVersion = @"10.4";
+                    catalog.ServiceUrl = serviceUrl;
+                    xmlSerializer.WriteObject(xmlWriter, catalog);
                     xmlAsText = writer.ToString();
                 }
             }
