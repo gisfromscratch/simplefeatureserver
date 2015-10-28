@@ -66,8 +66,10 @@ namespace GIS.Services
         /// </summary>
         /// <param name="format">The output format.</param>
         /// <returns>The description using the specified output format.</returns>
-        [OperationContract]
-        [WebGet]
-        string GetDescription(OutputFormat format);
+        [OperationContract(Name = @"GetWithFormat")]
+        [WebInvoke(Method = @"GET",
+            UriTemplate = @"/?f={format}")
+        ]
+        Stream GetDescription(string format);
     }
 }

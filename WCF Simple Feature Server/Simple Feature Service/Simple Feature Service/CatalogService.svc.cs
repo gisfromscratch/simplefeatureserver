@@ -21,6 +21,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
@@ -83,10 +84,35 @@ namespace GIS.Services
             return featureServices;
         }
 
-        public string GetDescription(OutputFormat format)
+        public Stream GetDescription(string format)
         {
-            var xsltFilepath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"ServiceDescriptionTemplate.xsl");
-            return File.ReadAllText(xsltFilepath);
+            OutputFormat outputFormat;
+            if (!Enum.TryParse<OutputFormat>(format, out outputFormat))
+            {
+                return GetDescription();
+            }
+
+            switch (outputFormat)
+            {
+                case OutputFormat.html:
+                    return GetDescription();
+
+                case OutputFormat.json:
+                case OutputFormat.pjson:
+                    var serviceUrl = WebOperationContext.Current.IncomingRequest.UriTemplateMatch.BaseUri.AbsoluteUri;
+                    var catalog = new Catalog();
+                    catalog.CurrentVersion = @"10.4";
+                    catalog.ServiceUrl = serviceUrl;
+
+                    var jsonSerializer = new DataContractJsonSerializer(typeof(Catalog));
+                    var memoryStream = new MemoryStream();
+                    jsonSerializer.WriteObject(memoryStream, catalog);
+                    memoryStream.Position = 0;
+                    return memoryStream;
+
+                default:
+                    return GetDescription();
+            }
         }
     }
 }

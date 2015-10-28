@@ -36,6 +36,8 @@ namespace GIS.Services.Data
         public Catalog()
         {
             SpecificationVersion = _defaultVersion;
+            Folders = new List<string>();
+            Services = new Dictionary<string, string>();
         }
 
         /// <summary>
