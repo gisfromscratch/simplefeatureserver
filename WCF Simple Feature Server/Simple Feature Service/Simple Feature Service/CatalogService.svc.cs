@@ -53,6 +53,9 @@ namespace GIS.Services
                     var catalog = new Catalog();
                     catalog.CurrentVersion = @"10.4";
                     catalog.ServiceUrl = serviceUrl;
+                    catalog.Folders.Add(@"root");
+                    catalog.Services.Add(@"base", @"FeatureServer");
+                    catalog.Services.Add(@"test", @"FeatureServer");
                     xmlSerializer.WriteObject(xmlWriter, catalog);
                     xmlAsText = writer.ToString();
                 }

@@ -2,7 +2,8 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
-                xmlns:d="http://schemas.datacontract.org/2004/07/GIS.Services.Data">
+                xmlns:d="http://schemas.datacontract.org/2004/07/GIS.Services.Data"
+                xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
   <xsl:template match="d:Catalog">
     <html>
       <head>
@@ -47,6 +48,42 @@
           </tbody>
         </table>
 
+        <!-- Folders -->
+        <h2>Folder: /</h2>
+        <div class="rbody">
+          <b>Current Version: </b>
+          <xsl:value-of select="d:currentVersion"/>
+          <br/>
+          <br/>
+          <b>Folders: </b>
+          <ul>
+            <xsl:for-each select="d:folders">
+              <li>
+                <a href=".">
+                  <xsl:value-of select="a:string"/>
+                </a>
+              </li>
+            </xsl:for-each>
+          </ul>
+
+          <br/>
+          <br/>
+          <b>Services: </b>
+          <ul>
+            <xsl:for-each select="d:services/a:KeyValueOfstringstring">
+              <li>
+                <a href="{url}">
+                  <xsl:value-of select="a:Key"/>
+                </a> (<xsl:value-of select="a:Value"/>)
+              </li>
+            </xsl:for-each>
+          </ul>
+
+          <br/><br/>
+          <b>Supported Interfaces:</b>
+          &#160;&#160;<a target="_blank" href="{url}?f=pjson">REST</a>
+          <br/><br/>
+        </div>
       </body>
     </html>
   </xsl:template>
