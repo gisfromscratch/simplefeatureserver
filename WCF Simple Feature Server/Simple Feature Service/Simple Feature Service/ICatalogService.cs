@@ -57,9 +57,9 @@ namespace GIS.Services
 
         [OperationContract(Name = @"services")]
         [WebInvoke(Method = @"GET", 
-            UriTemplate = @"/features", 
+            UriTemplate = @"/{serviceName}/FeatureServer", 
             ResponseFormat = WebMessageFormat.Json)]
-        IList<FeatureServer> GetFeatureServices();
+        IList<FeatureServer> GetFeatureServices(string serviceName);
 
         /// <summary>
         /// The description of this and all child services.

@@ -71,6 +71,7 @@
     <Compile Include="Data\Feature.cs" />
     <Compile Include="Data\FeatureLayer.cs" />
     <Compile Include="Geometry\DefaultGeometry.cs" />
+    <Compile Include="Geometry\Envelope.cs" />
     <Compile Include="Geometry\Point.cs" />
     <Compile Include="Geometry\SpatialReference.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

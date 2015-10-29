@@ -65,7 +65,7 @@ namespace GIS.Services
             xmlDocument.LoadXml(xmlAsText);
 
             var memoryStream = new MemoryStream();
-            var xslTransform = new XslTransform();
+            var xslTransform = new XslCompiledTransform();
             xslTransform.Load(xsltFilepath);
             xslTransform.Transform(xmlDocument, null, memoryStream);
 
@@ -80,7 +80,7 @@ namespace GIS.Services
             return File.OpenRead(cssFilePath);
         }
 
-        public IList<FeatureServer> GetFeatureServices()
+        public IList<FeatureServer> GetFeatureServices(string serviceName)
         {
             var featureServices = new List<FeatureServer>();
             featureServices.Add(new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty });

@@ -28,6 +28,7 @@ namespace GIS.Datasources.Geometry
     /// </summary>
     [DataContract]
     [KnownType(typeof(Point))]
+    [KnownType(typeof(Envelope))]
     public abstract class DefaultGeometry
     {
         /// <summary>

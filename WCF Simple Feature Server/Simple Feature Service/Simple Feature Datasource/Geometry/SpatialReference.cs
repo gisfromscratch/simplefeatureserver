@@ -33,6 +33,9 @@ namespace GIS.Datasources.Geometry
         /// The well known ID uniquely identifying a spatial reference.
         /// </summary>
         [DataMember(Name = @"wkid")]
-        public int Wkid;
+        public int Wkid { get; set; }
+
+        [DataMember(Name = @"latestWkid")]
+        public int LatestWkid { get; set; }
     }
 }
