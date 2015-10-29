@@ -35,12 +35,18 @@ namespace GIS.Services.Data
         public FeatureServer()
         {
             CurrentVersion = @"10.4";
+            ServiceDescription = string.Empty;
             HasVersionedData = false;
             SupportsDisconnectedEditing = false;
             SupportedQueryFormats = @"JSON";
             MaxRecordCount = 1000;
             Capabilities = @"Query";
+            Description = string.Empty;
+            Copyright = string.Empty;
             AllowGeometryUpdates = false;
+            Layers = new List<DatasetEntry>();
+            Tables = new List<DatasetEntry>();
+            EnableZDefaults = false;
         }
 
         [DataMember(Name = @"currentVersion")]
