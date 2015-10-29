@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
+using GIS.Datasources;
+using GIS.Datasources.Data;
 using GIS.Services.Data;
+using GIS.Services.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -80,14 +83,25 @@ namespace GIS.Services
             return File.OpenRead(cssFilePath);
         }
 
-        public Stream GetFeatureService(string serviceName)
+        public Stream GetFeatureService(string serviceName, string layerId)
         {
+            int layerIndex;
+            if (int.TryParse(layerId, out layerIndex) && -1 != layerIndex)
+            {
+                var shapefilePath = Path.Combine(HostingEnvironment.ApplicationPhysicalPath, @"App_Data", @"data", @"Points.shp");
+                var reader = new SimpleFeatureReader();
+                var layers = reader.GetFeatureLayers(shapefilePath);
+                foreach (var layer in layers)
+                {
+                    if (layerIndex == layer.Id)
+                    {
+                        return Serializer.ToJson<FeatureLayer>(layer);
+                    }
+                }
+            }
+
             var featureService = new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty };
-            var jsonSerializer = new DataContractJsonSerializer(typeof(FeatureServer));
-            var memoryStream = new MemoryStream();
-            jsonSerializer.WriteObject(memoryStream, featureService);
-            memoryStream.Position = 0;
-            return memoryStream;
+            return Serializer.ToJson<FeatureServer>(featureService);
         }
 
         public Stream GetDescription(string format)

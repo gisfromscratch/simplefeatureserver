@@ -75,6 +75,7 @@
       <Link>osr_wrap.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="App_Data\data\Points.shp.xml" />
     <Content Include="App_Data\main.css" />
     <Content Include="App_Data\ServiceDescriptionTemplate.xsl" />
     <Content Include="FeatureService.svc" />
@@ -95,11 +96,19 @@
     </Compile>
     <Compile Include="IFeatureService.cs" />
     <Compile Include="ICatalogService.cs" />
+    <Compile Include="IO\Serializer.cs" />
     <Compile Include="OutputFormat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="App_Data\data\Points.cpg" />
+    <Content Include="App_Data\data\Points.dbf" />
+    <Content Include="App_Data\data\Points.prj" />
+    <Content Include="App_Data\data\Points.sbn" />
+    <Content Include="App_Data\data\Points.sbx" />
+    <Content Include="App_Data\data\Points.shp" />
+    <Content Include="App_Data\data\Points.shx" />
     <None Include="Properties\PublishProfiles\Local IIS.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

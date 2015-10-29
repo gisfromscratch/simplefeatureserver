@@ -73,7 +73,7 @@
           <ul>
             <xsl:for-each select="d:services/a:KeyValueOfstringstring">
               <li>
-                <a href="{url}{a:Key}/{a:Value}">
+                <a href="{url}{a:Key}/{a:Value}/0">
                   <xsl:value-of select="a:Key"/>
                 </a> (<xsl:value-of select="a:Value"/>)
               </li>
