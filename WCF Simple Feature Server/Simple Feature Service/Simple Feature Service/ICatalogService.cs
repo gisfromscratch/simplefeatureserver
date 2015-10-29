@@ -37,7 +37,7 @@ namespace GIS.Services
         /// The description of this and all child services.
         /// </summary>
         /// <returns>The description using HTML format.</returns>
-        [OperationContract(Name = @"Get")]
+        [OperationContract(Name = @"description")]
         [WebInvoke(Method = @"GET", 
             UriTemplate = @"/")
             //ResponseFormat = WebMessageFormat
@@ -55,18 +55,18 @@ namespace GIS.Services
         ]
         Stream GetStylesheet(string fileName);
 
-        [OperationContract(Name = @"services")]
+        [OperationContract(Name = @"service")]
         [WebInvoke(Method = @"GET", 
-            UriTemplate = @"/{serviceName}/FeatureServer", 
-            ResponseFormat = WebMessageFormat.Json)]
-        IList<FeatureServer> GetFeatureServices(string serviceName);
+            UriTemplate = @"/{serviceName}/FeatureServer")
+        ]
+        Stream GetFeatureService(string serviceName);
 
         /// <summary>
         /// The description of this and all child services.
         /// </summary>
         /// <param name="format">The output format.</param>
         /// <returns>The description using the specified output format.</returns>
-        [OperationContract(Name = @"GetWithFormat")]
+        [OperationContract(Name = @"descriptionWithFormat")]
         [WebInvoke(Method = @"GET",
             UriTemplate = @"/?f={format}")
         ]

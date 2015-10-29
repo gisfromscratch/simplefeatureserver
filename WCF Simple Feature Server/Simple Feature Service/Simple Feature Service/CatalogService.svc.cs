@@ -80,11 +80,14 @@ namespace GIS.Services
             return File.OpenRead(cssFilePath);
         }
 
-        public IList<FeatureServer> GetFeatureServices(string serviceName)
+        public Stream GetFeatureService(string serviceName)
         {
-            var featureServices = new List<FeatureServer>();
-            featureServices.Add(new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty });
-            return featureServices;
+            var featureService = new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty };
+            var jsonSerializer = new DataContractJsonSerializer(typeof(FeatureServer));
+            var memoryStream = new MemoryStream();
+            jsonSerializer.WriteObject(memoryStream, featureService);
+            memoryStream.Position = 0;
+            return memoryStream;
         }
 
         public Stream GetDescription(string format)
