@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Convert\GeometryConverter.cs" />
-    <Compile Include="Data\DatasetEntry.cs" />
     <Compile Include="Data\Feature.cs" />
     <Compile Include="Data\FeatureLayer.cs" />
     <Compile Include="Geometry\DefaultGeometry.cs" />

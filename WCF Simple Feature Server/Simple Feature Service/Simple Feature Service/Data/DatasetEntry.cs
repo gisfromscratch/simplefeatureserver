@@ -5,13 +5,12 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace GIS.Datasources.Data
+namespace GIS.Services.Data
 {
     /// <summary>
     /// A dataset entry having an ID and a name.
     /// </summary>
     [DataContract]
-    [KnownType(typeof(FeatureLayer))]
     public class DatasetEntry
     {
         [DataMember(Name = @"id")]

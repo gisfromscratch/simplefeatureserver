@@ -27,8 +27,14 @@ namespace GIS.Datasources.Data
     /// Represents a layer having features of the same geometry type and spatial reference.
     /// </summary>
     [DataContract]
-    public class FeatureLayer : DatasetEntry
+    public class FeatureLayer
     {
+        [DataMember(Name = @"id")]
+        public int Id { get; set; }
+
+        [DataMember(Name = @"name")]
+        public string Name { get; set; }
+
         /// <summary>
         /// The connection string referencing the underlying datasource.
         /// </summary>
