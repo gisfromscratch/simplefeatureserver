@@ -34,7 +34,7 @@ namespace GIS.Services
         public ICollection<FeatureLayer> QueryLayers()
         {
             var reader = new SimpleFeatureReader();
-            var layers = reader.GetFeatureLayer(@"D:\LocalGit\Repos\simplefeatureserver\data\Points.shp");
+            var layers = reader.GetFeatureLayers(@"D:\LocalGit\Repos\simplefeatureserver\data\Points.shp");
             return layers;
         }
         

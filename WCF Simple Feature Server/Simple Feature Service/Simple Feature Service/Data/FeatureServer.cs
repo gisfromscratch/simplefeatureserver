@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+using GIS.Datasources.Data;
 using GIS.Datasources.Geometry;
 using System;
 using System.Collections.Generic;

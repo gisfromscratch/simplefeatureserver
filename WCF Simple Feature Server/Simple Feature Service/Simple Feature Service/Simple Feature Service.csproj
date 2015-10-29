@@ -84,7 +84,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DatasetEntry.cs" />
     <Compile Include="Data\FeatureServer.cs" />
     <Compile Include="Data\Catalog.cs" />
     <Compile Include="FeatureService.svc.cs">

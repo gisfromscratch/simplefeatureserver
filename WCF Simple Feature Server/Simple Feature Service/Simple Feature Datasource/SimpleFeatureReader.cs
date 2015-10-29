@@ -44,7 +44,7 @@ namespace GIS.Datasources
         /// </summary>
         /// <param name="filePath">The file path to the datasource.</param>
         /// <returns>The feature layers of the specified datasource.</returns>
-        public ICollection<FeatureLayer> GetFeatureLayer(string filePath)
+        public ICollection<FeatureLayer> GetFeatureLayers(string filePath)
         {
             var layers = new List<FeatureLayer>();
             using (var datasource = OGR.Ogr.Open(filePath, 0))

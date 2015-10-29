@@ -1,19 +1,21 @@
-﻿using System;
+﻿using GIS.Datasources.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace GIS.Services.Data
+namespace GIS.Datasources.Data
 {
     /// <summary>
     /// A dataset entry having an ID and a name.
     /// </summary>
     [DataContract]
+    [KnownType(typeof(FeatureLayer))]
     public class DatasetEntry
     {
         [DataMember(Name = @"id")]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [DataMember(Name = @"name")]
         public string Name { get; set; }

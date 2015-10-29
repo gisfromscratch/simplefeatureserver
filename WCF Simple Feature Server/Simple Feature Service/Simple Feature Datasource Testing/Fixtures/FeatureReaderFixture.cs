@@ -37,7 +37,7 @@ namespace GIS.Datasources.Testing.Fixtures
             Assert.IsTrue(File.Exists(ShapefilePath), @"The shapefile does not exists!");
 
             var reader = new SimpleFeatureReader();
-            var layers = reader.GetFeatureLayer(ShapefilePath);
+            var layers = reader.GetFeatureLayers(ShapefilePath);
             Assert.IsNotNull(layers, @"The layers were not intialized!");
 
 
