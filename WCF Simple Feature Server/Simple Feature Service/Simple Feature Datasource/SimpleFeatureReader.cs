@@ -36,6 +36,7 @@ namespace GIS.Datasources
 
         public SimpleFeatureReader()
         {
+            _logger = LogManager.GetLogger(GetType());
             OSGeo.OGR.Ogr.RegisterAll();
         }
 
