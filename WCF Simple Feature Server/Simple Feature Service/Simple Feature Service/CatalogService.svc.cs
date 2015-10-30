@@ -95,12 +95,14 @@ namespace GIS.Services
                 {
                     if (layerIndex == layer.Id)
                     {
+                        WebOperationContext.Current.OutgoingResponse.ContentType = @"application/json";
                         return Serializer.ToJson<FeatureLayer>(layer);
                     }
                 }
             }
 
             var featureService = new FeatureServer { CurrentVersion = @"10.4", ServiceDescription = string.Empty };
+            WebOperationContext.Current.OutgoingResponse.ContentType = @"application/json";
             return Serializer.ToJson<FeatureServer>(featureService);
         }
 
@@ -128,6 +130,7 @@ namespace GIS.Services
                     var memoryStream = new MemoryStream();
                     jsonSerializer.WriteObject(memoryStream, catalog);
                     memoryStream.Position = 0;
+                    WebOperationContext.Current.OutgoingResponse.ContentType = @"application/json";
                     return memoryStream;
 
                 default:
