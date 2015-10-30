@@ -138,7 +138,7 @@ namespace GIS.Datasources.Data
         [DataMember(Name = @"allowGeometryUpdates")]
         public bool AllowGeometryUpdates { get; set; }
 
-        [DataMember(Name = @"HasAttachments")]
+        [DataMember(Name = @"hasAttachments")]
         public bool HasAttachments { get; set; }
 
         [DataMember(Name = @"objectIdField")]
